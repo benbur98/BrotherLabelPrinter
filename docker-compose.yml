@@ -1,5 +1,5 @@
 services:
-  fastapi:
+  print_server:
     container_name: print_server
     build: .
     env_file: web/.env
@@ -16,12 +16,12 @@ services:
       - "80:80"
     privileged: true
     devices:
-      - /dev/bus/usb:/dev/bus/usb  # USB Printer
+      - /dev/bus/usb:/dev/bus/usb # USB Printer
     volumes:
       - /sys/class/pwm:/sys/class/pwm
     restart: always
     healthcheck:
-      test: [ "CMD", "curl", "-f", "http://localhost:80/health" ]
+      test: ["CMD", "curl", "-f", "http://localhost:80/health"]
       interval: 60s
       timeout: 5s
       retries: 2

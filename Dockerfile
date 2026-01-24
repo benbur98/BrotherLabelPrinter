@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.13-slim
 
 RUN apt update && apt install -y usbutils curl fontconfig unzip
 
@@ -26,4 +26,4 @@ RUN pip install --upgrade -r /app/requirements.txt
 WORKDIR /app
 ENV PYTHONPATH="/app"
 
-CMD ["fastapi", "run", "main.py", "--port", "80"]
+CMD ["print_server", "run", "main.py", "--port", "80"]

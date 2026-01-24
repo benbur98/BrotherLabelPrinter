@@ -1,15 +1,12 @@
+[project]
+name = "servo_motor_control"
+version = "1.0"
+description = "Simple ServoMotor Control for OrangePi to press BrotherLabelPrinter Power Button"
+readme = "README.md"
+
 [build-system]
 requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
-
-[project]
-name = "servo_motor_control"
-version = "0.1"
-description = "Simple ServoMotor Control for OrangePi to press BrotherLabelPrinter Power Button"
-authors = [
-    { name = "Ben Burwood", email = "ben.burwood@outlook.com" }
-]
-readme = "README.md"
 
 [tool.setuptools.packages.find]
 where = ["."]
