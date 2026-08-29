@@ -4,6 +4,7 @@ RUN apt update && apt install -y usbutils curl fontconfig unzip
 
 # Install JetBrains Mono Font
 RUN /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+ENV FONT=/root/.local/share/fonts/fonts/ttf/JetBrainsMono-Regular.ttf
 
 COPY . /app
 WORKDIR /app

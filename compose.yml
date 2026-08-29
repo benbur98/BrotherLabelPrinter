@@ -7,7 +7,6 @@ services:
       - BACKEND
       - PRINTER
       - MEDIA
-      - FONT
       - MOTOR_INITIAL
       - MOTOR_FINAL
     ports:
