@@ -5,5 +5,9 @@ description = "Brother QL Print Server"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "brother-label-printer-control",
     "fastapi>=0.128.0",
 ]
+
+[tool.uv.sources]
+brother-label-printer-control = { git = "https://github.com/ben-burwood/BrotherLabelPrinterControl.git", tag = "1.0.0" }

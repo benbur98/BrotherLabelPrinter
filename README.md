@@ -2,7 +2,7 @@
 
 API and GUI for Brother PTP-700 Label Printer
 
-This Repo is a Wrapper for and uses my Fork (https://github.com/benbur98/BrotherP700USBControl) of labelprinterkit (https://github.com/ogelpre/labelprinterkit) for Interfacing the Printer.
+This Repo is a Wrapper for and uses my [Fork](https://github.com/ben-burwood/BrotherLabelPrinterControl) of [labelprinterkit](https://github.com/ogelpre/labelprinterkit) for Interfacing the Printer.
 
 # Print Settings
 
@@ -11,12 +11,8 @@ e.g. the 12mm has 70 pixel/points so the content (Text) MUST fill the 70 pixel/p
 
 # Install
 
-Clone the repository and include submodules:
-```sh
-git clone --recurse-submodules https://github.com/benbur98/BrotherLabelPrinter.git
-```
-
-Configure the config.yaml in the backend Module
+Clone the repository.
+Configure the config.yaml in the backend Module.
 
 ## SystemD Service
 
