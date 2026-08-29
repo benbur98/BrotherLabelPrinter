@@ -1,5 +1,6 @@
 from brother_label_printer_control.utils.font import get_fonts
 
+
 def get_default_font() -> str | None:
     """Get the First Available TrueType Font in Linux as Default"""
     try:

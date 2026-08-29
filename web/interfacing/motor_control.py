@@ -3,18 +3,18 @@ from dataclasses import dataclass
 
 from servo_motor_control.motor import Motor
 
+
 @dataclass(frozen=True)
 class MotorPowerButtonControl:
     initial_position: int = 50
     final_position: int = 25
 
     @classmethod
-    def get(
-            cls, initial_position: int | None, final_position: int | None
-    ) -> "MotorPowerButtonControl | None":
+    def get(cls, initial_position: int | None, final_position: int | None) -> "MotorPowerButtonControl | None":
         if initial_position is None or final_position is None:
             return None
         return cls(initial_position, final_position)
+
 
 def toggle_power_button(motor_control: MotorPowerButtonControl) -> None:
     """Toggles the Power Button of the Printer by moving the Motor to the Pressed Position and then back to the Initial"""

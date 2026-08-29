@@ -1,11 +1,10 @@
 import subprocess
 
 from . import MotorError
-from .constants import MotorPosition, PWM_PATH, PWM_PERIOD
+from .constants import PWM_PATH, PWM_PERIOD, MotorPosition
 
 
 class Motor:
-
     def __init__(self, pwm_channel: int = 1) -> None:
         self.pwm_channel = pwm_channel
         self.pwm_channel_path = f"{PWM_PATH}/pwm{pwm_channel}"

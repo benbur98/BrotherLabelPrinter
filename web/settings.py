@@ -1,5 +1,4 @@
 from functools import lru_cache
-from typing import Optional
 
 from brother_label_printer_control.backends.main import Backend
 from brother_label_printer_control.constants import Media
@@ -9,6 +8,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from .interfacing.font import get_default_font
 from .interfacing.motor_control import MotorPowerButtonControl
+
 
 class Settings(BaseSettings):
     """Get the Settings from the Environment"""
@@ -24,10 +24,8 @@ class Settings(BaseSettings):
     motor_initial: int | None = None
     motor_final: int | None = None
 
-    @field_validator(
-        "vendor_id", "product_id", "motor_initial", "motor_final", mode="before"
-    )
-    def parse_optional_int(cls, value: Optional[str]) -> Optional[int]:
+    @field_validator("vendor_id", "product_id", "motor_initial", "motor_final", mode="before")
+    def parse_optional_int(cls, value: str | None) -> int | None:
         if value == "" or value is None:
             return None
         return int(value)
@@ -47,6 +45,7 @@ class Settings(BaseSettings):
     @property
     def motor_control(self) -> MotorPowerButtonControl | None:
         return MotorPowerButtonControl.get(self.motor_initial, self.motor_final)
+
 
 @lru_cache
 def get_settings():

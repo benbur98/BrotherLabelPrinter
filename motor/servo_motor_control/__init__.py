@@ -1,3 +1,2 @@
-
 class MotorError(Exception):
     pass

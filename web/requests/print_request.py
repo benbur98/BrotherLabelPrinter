@@ -6,12 +6,11 @@ from pydantic import BaseModel, Field, field_validator
 
 from ..settings import get_settings
 
+
 class PrintRequest(BaseModel):
     text: str
     height: int
-    padding: Padding = Field(
-        default_factory=lambda: Padding(top=0, right=0, bottom=0, left=0)
-    )
+    padding: Padding = Field(default_factory=lambda: Padding(top=0, right=0, bottom=0, left=0))
     font: str = Field(default_factory=lambda: get_settings().font)
     media: Media = Field(default_factory=lambda: get_settings().media)
 
@@ -28,9 +27,7 @@ class PrintRequest(BaseModel):
         return media
 
     def generate_label(self, media: Media) -> Label:
-        height = min(
-            media.value.printarea, self.height
-        )  # Cap the Height to the media's printarea
+        height = min(media.value.printarea, self.height)  # Cap the Height to the media's printarea
 
         text = Text(height, self.text, font_path=self.font, padding=self.padding)
 

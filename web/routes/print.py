@@ -6,11 +6,12 @@ from ..requests.print_request import PrintRequest
 
 router = APIRouter()
 
+
 @router.get("/print")
 @router.post("/print")
 def print_label(
-        request: PrintRequest,
-        printer_manager: PrinterManager = Depends(PrinterManager.get),
+    request: PrintRequest,
+    printer_manager: PrinterManager = Depends(PrinterManager.get),
 ):
     printer = printer_manager.printer
 

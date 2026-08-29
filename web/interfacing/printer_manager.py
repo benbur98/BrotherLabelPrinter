@@ -7,19 +7,20 @@ from brother_label_printer_control.printers import GenericPrinter
 from brother_label_printer_control.printers.main import Printer
 from fastapi import Depends
 
-from .motor_control import MotorPowerButtonControl, toggle_power_button
 from ..settings import Settings, get_settings
+from .motor_control import MotorPowerButtonControl, toggle_power_button
+
 
 class PrinterManager:
     _instance = None
 
     def __init__(
-            self,
-            backend_type: Backend,
-            printer_type: Printer,
-            motor_control: MotorPowerButtonControl | None = None,
-            vendor_id: int | None = None,
-            product_id: int | None = None,
+        self,
+        backend_type: Backend,
+        printer_type: Printer,
+        motor_control: MotorPowerButtonControl | None = None,
+        vendor_id: int | None = None,
+        product_id: int | None = None,
     ) -> None:
         self._backend_type = backend_type
         self._printer_type = printer_type
@@ -30,18 +31,16 @@ class PrinterManager:
         self._product_id = product_id
 
     def __new__(
-            cls,
-            backend_type: Backend,
-            printer_type: Printer,
-            motor_control: MotorPowerButtonControl | None = None,
-            vendor_id: int | None = None,
-            product_id: int | None = None,
+        cls,
+        backend_type: Backend,
+        printer_type: Printer,
+        motor_control: MotorPowerButtonControl | None = None,
+        vendor_id: int | None = None,
+        product_id: int | None = None,
     ) -> "PrinterManager":
         if cls._instance is None:
-            cls._instance = super(PrinterManager, cls).__new__(cls)
-            cls._instance.__init__(
-                backend_type, printer_type, motor_control, vendor_id, product_id
-            )
+            cls._instance = super().__new__(cls)
+            cls._instance.__init__(backend_type, printer_type, motor_control, vendor_id, product_id)
             cls._instance._initialize_printer()
         return cls._instance
 
@@ -61,7 +60,5 @@ class PrinterManager:
         return self._printer
 
     @classmethod
-    def get(
-            cls, settings: Annotated[Settings, Depends(get_settings)]
-    ) -> "PrinterManager":
+    def get(cls, settings: Annotated[Settings, Depends(get_settings)]) -> "PrinterManager":
         return cls(settings.backend, settings.printer, settings.motor_control)

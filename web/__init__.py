@@ -1,3 +1,2 @@
-
 class BrotherPrinterApiError(Exception):
     pass

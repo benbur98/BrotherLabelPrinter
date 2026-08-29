@@ -1,6 +1,5 @@
 from enum import Enum
 
-
 PWM_PATH = "/sys/class/pwm/pwmchip0"
 
 
