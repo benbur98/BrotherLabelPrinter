@@ -3,10 +3,11 @@ name = "servo_motor_control"
 version = "1.0"
 description = "Simple ServoMotor Control for OrangePi to press BrotherLabelPrinter Power Button"
 readme = "README.md"
+requires-python = ">=3.13"
 
 [build-system]
-requires = ["setuptools>=42", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["uv_build>=0.12,<0.13"]
+build-backend = "uv_build"
 
-[tool.setuptools.packages.find]
-where = ["."]
+[tool.uv.build-backend]
+module-root = ""

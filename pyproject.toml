@@ -1,0 +1,5 @@
+[tool.uv.workspace]
+members = ["web", "motor"]
+
+[tool.ruff]
+line-length = 150
