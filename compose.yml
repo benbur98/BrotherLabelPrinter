@@ -8,8 +8,6 @@ services:
       - PRINTER
       - MEDIA
       - FONT
-      - VENDOR_ID
-      - PRODUCT_ID
       - MOTOR_INITIAL
       - MOTOR_FINAL
     ports:

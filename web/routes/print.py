@@ -13,13 +13,11 @@ def print_label(
     request: PrintRequest,
     printer_manager: PrinterManager = Depends(PrinterManager.get),
 ):
-    printer = printer_manager.printer
-
     label = request.generate_label(request.media)
 
     job = Job(request.media)
     job.add_page(label)
 
-    printer.print(job)
+    printer_manager.printer.print(job)
 
     return {"status": "success", "message": "Label printed successfully"}

@@ -11,20 +11,20 @@ from .interfacing.motor_control import MotorPowerButtonControl
 
 
 class Settings(BaseSettings):
-    """Get the Settings from the Environment"""
-
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
     backend: Backend
     printer: Printer
+    # vendor_id: int | None = None
+    # product_id: int | None = None
+
     media: Media
     font: str = Field(default_factory=lambda: get_default_font())
-    vendor_id: int | None = None
-    product_id: int | None = None
+
     motor_initial: int | None = None
     motor_final: int | None = None
 
-    @field_validator("vendor_id", "product_id", "motor_initial", "motor_final", mode="before")
+    @field_validator("motor_initial", "motor_final", mode="before")
     def parse_optional_int(cls, value: str | None) -> int | None:
         if value == "" or value is None:
             return None

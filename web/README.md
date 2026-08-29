@@ -2,21 +2,14 @@
 
 ## Config
 
-The YAML Configuration file - located at `config.yaml` - is used to configure the Brother Printer API. The following is an example of the configuration file:
+The Configuration is managed by Environment Variables.
 
-```yaml
-backend: usb
-printer: PTP_700
-media: W12
-font: /path/to/font.ttf
-```
-
-| Configuration | Description                          | Required | Options                                          |
+| EnvVar        | Description                          | Required | Options                                          |
 |---------------|--------------------------------------|----------|--------------------------------------------------|
-| backend       | Backend Type for Printer Connection  | True     | usb, bluetooth, wifi                             |
-| printer       | Printer Model                        | True     | PTP_700, PTP_750W, PTP_H500, PTP_E500, PTP_E550W |
-| media         | Printer Media (Tape) Inserted        | False    | W3_5, W6, W9, W12, W18, W24                      |
-| font          | Truetype Font Path to use by Default | False    |                                                  |
+| BACKEND       | Backend Type for Printer Connection  | True     | usb, bluetooth, wifi                             |
+| PRINTER       | Printer Model                        | True     | PTP_700, PTP_750W, PTP_H500, PTP_E500, PTP_E550W |
+| MEDIA         | Printer Media (Tape) Inserted        | False    | W3_5, W6, W9, W12, W18, W24                      |
+| FONT          | Truetype Font Path to use by Default | False    |                                                  |
 
 ## API
 
