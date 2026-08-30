@@ -14,5 +14,5 @@ dependencies = [
 package = false
 
 [tool.uv.sources]
-brother-label-printer-control = { git = "https://github.com/ben-burwood/BrotherLabelPrinterControl.git", tag = "1.0.0" }
+brother-label-printer-control = { git = "https://github.com/ben-burwood/BrotherLabelPrinterControl.git", tag = "1.0.1" }
 servo-motor-control = { workspace = true }
