@@ -12,8 +12,11 @@ services:
     ports:
       - "80:80"
     privileged: true
-    devices:
-      - /dev/bus/usb:/dev/bus/usb # USB Printer
     volumes:
       - /sys/class/pwm:/sys/class/pwm
+      - type: bind
+        source: /dev
+        target: /dev
+        bind:  # run once on the device `sudo mount --make-rshared /`
+          propagation: rshared # USB Printer hotplug: new /dev/bus/usb nodes propagate in
     restart: always
